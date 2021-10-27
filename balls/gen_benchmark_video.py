@@ -38,10 +38,8 @@ class Ball:
             self.dir[0] = -self.dir[0] if self.x - self.r <= 0 else self.dir[0]
             self.dir[1] = -self.dir[1] if self.y - self.r <= 0 else self.dir[1]
 
-            self.dir[0] = -self.dir[0] if self.x + self.r >= self.border[
-                0] else self.dir[0]
-            self.dir[1] = -self.dir[1] if self.y + self.r >= self.border[
-                1] else self.dir[1]
+            self.dir[0] = -self.dir[0] if self.x + self.r >= self.border[0] else self.dir[0]
+            self.dir[1] = -self.dir[1] if self.y + self.r >= self.border[1] else self.dir[1]
 
 
 class Balls:
@@ -90,8 +88,8 @@ def save_images(imgs):
 def main():
 
     balls = Balls(nb=1000, speed=0.003)
-    N = 30 * 30
-    p = Pool(30)
+    N = 10 * 30
+    p = Pool(60)
 
     images = []
 
@@ -105,7 +103,7 @@ def main():
         if i % (30 * 1) == 0:
             balls.inc_speed(0.001)
 
-        if i % (300) == 0:
+        if i % (60) == 0:
             print('start to save')
             p.map(save_images, images)
             images = []
