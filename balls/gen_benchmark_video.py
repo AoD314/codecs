@@ -2,7 +2,7 @@ from PIL import Image, ImageDraw, ImageFont
 import random
 from multiprocessing import Pool
 
-settings = {'img_size': (3840, 2160), 'ratio': 0.012}
+settings = {'img_size': (7680, 4320), 'ratio': 0.012}
 
 
 def get_color():
@@ -70,14 +70,10 @@ class Balls:
 
     def render(self, image):
         d = ImageDraw.Draw(image)
-        fnt = ImageFont.truetype('LiberationMono-Regular.ttf', 24)
+        fnt = ImageFont.truetype('LiberationMono-Regular.ttf', int(max(settings['img_size']) / 80))
         for b in self.balls:
-            d.ellipse([b.x - b.r, b.y - b.r, b.x + b.r, b.y + b.r],
-                      fill=b.color)
-        d.text((10, 10),
-               "{:05d}".format(self.frame_number),
-               font=fnt,
-               fill=(255, 255, 255, 255))
+            d.ellipse([b.x - b.r, b.y - b.r, b.x + b.r, b.y + b.r], fill=b.color)
+        d.text((10, 10), "{:05d}".format(self.frame_number), font=fnt, fill=(255, 255, 255, 255))
 
 
 def save_images(imgs):

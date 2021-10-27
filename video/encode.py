@@ -9,11 +9,13 @@ def get_ffmpeg():
     return 'c:/Python39/python.exe video/ffmpeg.py'
 
 
-#codec = ['H264', 'H265', 'vp9', 'av1']
-codec = ['vp9']
-bt = ['1M', '2M', '4M', '8M', '16M']
+# bt = ['1M', '2M', '4M', '8M', '16M']
+# codec = ['H264', 'H265', 'vp9', 'av1']
+
+codec = ['H264', 'H265', 'vp9', 'av1']
+bt = ['2M']
 fps = ['30']
-res = [(3840, 2160)]
+res = [(7680, 4320)]
 # res   = [(3840, 2160), (4096, 4096), (7680, 4320), (8192, 8192), (15360 , 8640)]
 
 for r in res:
